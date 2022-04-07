@@ -28,9 +28,9 @@
 void initDefault()
 {
     // Initialize default pins
-    pinMode(ADDRESS_PIN1, INPUT_PULLUP);
+    /*pinMode(ADDRESS_PIN1, INPUT_PULLUP);
     pinMode(ADDRESS_PIN2, INPUT_PULLUP);
-    pinMode(ADDRESS_PIN3, INPUT_PULLUP);
+    pinMode(ADDRESS_PIN3, INPUT_PULLUP);*/
 }
 
 char getI2CAddress()
@@ -43,8 +43,8 @@ char getI2CAddress()
     // Default address if all pins are on off position
     char address = DEFAULT_ADDRESS;
     address |= (addrPin1 << 0) | (addrPin2 << 1) | (addrPin3 << 2);
-
-    return address;
+    
+    return 0x30;
 }
 
 #endif
