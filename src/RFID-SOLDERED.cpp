@@ -19,10 +19,10 @@
  */
 uint64_t sliderPot::getRaw()
 {
-    memset(raw, 0 , 8* sizeof(uint8_t));
+    memset(raw, 0, 8 * sizeof(uint8_t));
     readRegister(0x01, raw, 8 * sizeof(uint8_t));
-    value = raw[0] | (raw[1] << 8) | (raw[2] << 16) | (raw[3] << 24) |
-            (raw[4] << 32) | (raw[5] << 40) | (raw[6] << 48)| (raw[7] << 56) ;
+    value = raw[0] | (raw[1] << 8) | (raw[2] << 16) | (raw[3] << 24) | (raw[4] << 32) | (raw[5] << 40) |
+            (raw[6] << 48) | (raw[7] << 56);
     return value;
 }
 
@@ -33,9 +33,9 @@ uint64_t sliderPot::getRaw()
  */
 uint32_t sliderPot::getID()
 {
-    memset(raw, 0 , 8* sizeof(uint8_t));
+    memset(raw, 0, 8 * sizeof(uint8_t));
     readRegister(0x02, raw, 4 * sizeof(uint8_t));
-    value = raw[0] | (raw[1] << 8) | (raw[2] << 16) | (raw[3] << 24) ;
+    value = raw[0] | (raw[1] << 8) | (raw[2] << 16) | (raw[3] << 24);
     return value;
 }
 
@@ -46,7 +46,7 @@ uint32_t sliderPot::getID()
  */
 uint8_t sliderPot::available()
 {
-    memset(raw, 0 , 8* sizeof(uint8_t));
+    memset(raw, 0, 8 * sizeof(uint8_t));
     readRegister(0x00, raw, 1 * sizeof(uint8_t));
     return raw[0];
 }
@@ -57,8 +57,8 @@ uint8_t sliderPot::available()
  * @return      percent vaule of potentiometer reading
  */
 void sliderPot::clear()
-{   
-    memset(raw, 0 , 8* sizeof(uint8_t));
+{
+    memset(raw, 0, 8 * sizeof(uint8_t));
     raw[0] = 0x03;
-    sendData((const uint8_t*)raw, 1 * sizeof(uint8_t));
+    sendData((const uint8_t *)raw, 1 * sizeof(uint8_t));
 }
