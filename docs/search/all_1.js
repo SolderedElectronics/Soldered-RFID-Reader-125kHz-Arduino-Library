@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['begin_0',['begin',['../class_easy_c.html#a1b5a82b8a59daea79de76e496457e176',1,'EasyC::begin()'],['../class_easy_c.html#a9e71467da6f38cbe47b10e96694a4f91',1,'EasyC::begin(uint8_t _address)']]],
-  ['begindone_1',['beginDone',['../class_easy_c.html#a2f55de657a84e73edda23dae91d30436',1,'EasyC']]]
+  ['address_0',['address',['../class_easy_c.html#a6f4c6f2e8723b0c0495e126d49f5fcda',1,'EasyC']]],
+  ['attiny_5frfid_2ecpp_1',['attiny_rfid.cpp',['../attiny__rfid_8cpp.html',1,'']]],
+  ['attiny_5frfid_2eh_2',['attiny_rfid.h',['../attiny__rfid_8h.html',1,'']]],
+  ['available_3',['available',['../classtiny_r_f_i_d.html#aee9889e37493e15b2f40a8d2e87b7099',1,'tinyRFID::available()'],['../classslider_pot.html#a9e8870c0ac1491152bfb2f08662cfd2d',1,'sliderPot::available()']]]
 ];

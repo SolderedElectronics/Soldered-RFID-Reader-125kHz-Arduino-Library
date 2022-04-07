@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sensor_0',['Sensor',['../class_sensor.html',1,'']]]
+  ['sliderpot_0',['sliderPot',['../classslider_pot.html',1,'']]]
 ];

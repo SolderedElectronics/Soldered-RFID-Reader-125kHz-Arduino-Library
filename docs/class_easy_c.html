@@ -94,12 +94,35 @@ $(document).ready(function(){initNavTree('class_easy_c.html',''); initResizable(
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="easy_c_8hpp_source.html">easyC.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="examples_2rfid__simple__test_2libs_2_generic-easy_c_2easy_c_8hpp_source.html">easyC.hpp</a>&gt;</code></p>
 
-<p>Inherited by <a class="el" href="class_sensor.html">Sensor</a>.</p>
+<p>Inherited by <a class="el" href="classslider_pot.html">sliderPot</a>.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a2ea672a225a32eab52c2b20733fd26bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easy_c.html#a2ea672a225a32eab52c2b20733fd26bd">EasyC</a> ()</td></tr>
+<tr class="memdesc:a2ea672a225a32eab52c2b20733fd26bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main constructor for easyC version.  <a href="class_easy_c.html#a2ea672a225a32eab52c2b20733fd26bd">More...</a><br /></td></tr>
+<tr class="separator:a2ea672a225a32eab52c2b20733fd26bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b5a82b8a59daea79de76e496457e176"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easy_c.html#a1b5a82b8a59daea79de76e496457e176">begin</a> ()</td></tr>
+<tr class="memdesc:a1b5a82b8a59daea79de76e496457e176"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes sensors on native or easyC on default address.  <a href="class_easy_c.html#a1b5a82b8a59daea79de76e496457e176">More...</a><br /></td></tr>
+<tr class="separator:a1b5a82b8a59daea79de76e496457e176"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e71467da6f38cbe47b10e96694a4f91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easy_c.html#a9e71467da6f38cbe47b10e96694a4f91">begin</a> (uint8_t _address)</td></tr>
+<tr class="memdesc:a9e71467da6f38cbe47b10e96694a4f91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes sensors on supplied i2c address.  <a href="class_easy_c.html#a9e71467da6f38cbe47b10e96694a4f91">More...</a><br /></td></tr>
+<tr class="separator:a9e71467da6f38cbe47b10e96694a4f91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48c8aa55d48ef0cc11047cab0735c998"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easy_c.html#a48c8aa55d48ef0cc11047cab0735c998">initializeNative</a> ()=0</td></tr>
+<tr class="separator:a48c8aa55d48ef0cc11047cab0735c998"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10aa7df19e8c7bf12cd720b662f317a3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easy_c.html#a10aa7df19e8c7bf12cd720b662f317a3">sendAddress</a> (char regAddr)</td></tr>
+<tr class="memdesc:a10aa7df19e8c7bf12cd720b662f317a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private function to send a single byte to sensor.  <a href="class_easy_c.html#a10aa7df19e8c7bf12cd720b662f317a3">More...</a><br /></td></tr>
+<tr class="separator:a10aa7df19e8c7bf12cd720b662f317a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a3d39be50b348768bc4b5dea3dae01a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easy_c.html#a9a3d39be50b348768bc4b5dea3dae01a">readData</a> (char a[], int n)</td></tr>
+<tr class="memdesc:a9a3d39be50b348768bc4b5dea3dae01a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private function to read n bytes over i2c.  <a href="class_easy_c.html#a9a3d39be50b348768bc4b5dea3dae01a">More...</a><br /></td></tr>
+<tr class="separator:a9a3d39be50b348768bc4b5dea3dae01a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45bd6c915c1fa0998e273f69ee2d2376"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easy_c.html#a45bd6c915c1fa0998e273f69ee2d2376">readRegister</a> (char regAddr, char a[], size_t n)</td></tr>
+<tr class="memdesc:a45bd6c915c1fa0998e273f69ee2d2376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private function to send over i2c and then read n bytes.  <a href="class_easy_c.html#a45bd6c915c1fa0998e273f69ee2d2376">More...</a><br /></td></tr>
+<tr class="separator:a45bd6c915c1fa0998e273f69ee2d2376"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe8aa014ae53cad3b0f3c42f59277195"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easy_c.html#afe8aa014ae53cad3b0f3c42f59277195">sendData</a> (const uint8_t *a, int n)</td></tr>
+<tr class="memdesc:afe8aa014ae53cad3b0f3c42f59277195"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private function to write n bytes over i2c.  <a href="class_easy_c.html#afe8aa014ae53cad3b0f3c42f59277195">More...</a><br /></td></tr>
+<tr class="separator:afe8aa014ae53cad3b0f3c42f59277195"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ea672a225a32eab52c2b20733fd26bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easy_c.html#a2ea672a225a32eab52c2b20733fd26bd">EasyC</a> ()</td></tr>
 <tr class="memdesc:a2ea672a225a32eab52c2b20733fd26bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main constructor for easyC version.  <a href="class_easy_c.html#a2ea672a225a32eab52c2b20733fd26bd">More...</a><br /></td></tr>
 <tr class="separator:a2ea672a225a32eab52c2b20733fd26bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,7 +162,34 @@ Public Attributes</h2></td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2ea672a225a32eab52c2b20733fd26bd" name="a2ea672a225a32eab52c2b20733fd26bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ea672a225a32eab52c2b20733fd26bd">&#9670;&nbsp;</a></span>EasyC()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ea672a225a32eab52c2b20733fd26bd">&#9670;&nbsp;</a></span>EasyC() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EasyC::EasyC </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Main constructor for easyC version. </p>
+
+</div>
+</div>
+<a id="a2ea672a225a32eab52c2b20733fd26bd" name="a2ea672a225a32eab52c2b20733fd26bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ea672a225a32eab52c2b20733fd26bd">&#9670;&nbsp;</a></span>EasyC() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,7 +217,34 @@ Public Attributes</h2></td></tr>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1b5a82b8a59daea79de76e496457e176" name="a1b5a82b8a59daea79de76e496457e176"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b5a82b8a59daea79de76e496457e176">&#9670;&nbsp;</a></span>begin() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b5a82b8a59daea79de76e496457e176">&#9670;&nbsp;</a></span>begin() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EasyC::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes sensors on native or easyC on default address. </p>
+
+</div>
+</div>
+<a id="a1b5a82b8a59daea79de76e496457e176" name="a1b5a82b8a59daea79de76e496457e176"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b5a82b8a59daea79de76e496457e176">&#9670;&nbsp;</a></span>begin() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -194,7 +271,41 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a9e71467da6f38cbe47b10e96694a4f91" name="a9e71467da6f38cbe47b10e96694a4f91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e71467da6f38cbe47b10e96694a4f91">&#9670;&nbsp;</a></span>begin() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e71467da6f38cbe47b10e96694a4f91">&#9670;&nbsp;</a></span>begin() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EasyC::begin </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>_address</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes sensors on supplied i2c address. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uint8_t</td><td>_address Custom easyC sensor address </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9e71467da6f38cbe47b10e96694a4f91" name="a9e71467da6f38cbe47b10e96694a4f91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e71467da6f38cbe47b10e96694a4f91">&#9670;&nbsp;</a></span>begin() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,7 +339,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a48c8aa55d48ef0cc11047cab0735c998" name="a48c8aa55d48ef0cc11047cab0735c998"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48c8aa55d48ef0cc11047cab0735c998">&#9670;&nbsp;</a></span>initializeNative()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a48c8aa55d48ef0cc11047cab0735c998">&#9670;&nbsp;</a></span>initializeNative() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -250,12 +361,85 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_sensor.html#adb537c76173019fddf84b2d89e6c6559">Sensor</a>.</p>
+<p>Implemented in <a class="el" href="classslider_pot.html#aa270c8180caa150344ab4e9aa5a0cfbc">sliderPot</a>.</p>
+
+</div>
+</div>
+<a id="a48c8aa55d48ef0cc11047cab0735c998" name="a48c8aa55d48ef0cc11047cab0735c998"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48c8aa55d48ef0cc11047cab0735c998">&#9670;&nbsp;</a></span>initializeNative() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void EasyC::initializeNative </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classslider_pot.html#aa270c8180caa150344ab4e9aa5a0cfbc">sliderPot</a>.</p>
 
 </div>
 </div>
 <a id="a9a3d39be50b348768bc4b5dea3dae01a" name="a9a3d39be50b348768bc4b5dea3dae01a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a3d39be50b348768bc4b5dea3dae01a">&#9670;&nbsp;</a></span>readData()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a3d39be50b348768bc4b5dea3dae01a">&#9670;&nbsp;</a></span>readData() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int EasyC::readData </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>a</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Private function to read n bytes over i2c. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">char</td><td>a[] Array to read data to </td></tr>
+    <tr><td class="paramname">int</td><td>n Number of bytes to read</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int Error code, always 0 </dd></dl>
+
+</div>
+</div>
+<a id="a9a3d39be50b348768bc4b5dea3dae01a" name="a9a3d39be50b348768bc4b5dea3dae01a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a3d39be50b348768bc4b5dea3dae01a">&#9670;&nbsp;</a></span>readData() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -301,7 +485,60 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a45bd6c915c1fa0998e273f69ee2d2376" name="a45bd6c915c1fa0998e273f69ee2d2376"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45bd6c915c1fa0998e273f69ee2d2376">&#9670;&nbsp;</a></span>readRegister()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a45bd6c915c1fa0998e273f69ee2d2376">&#9670;&nbsp;</a></span>readRegister() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int EasyC::readRegister </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>regAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>a</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Private function to send over i2c and then read n bytes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">char</td><td>regAddr Address of register to access data from </td></tr>
+    <tr><td class="paramname">char</td><td>a Array to put data in </td></tr>
+    <tr><td class="paramname">size_t</td><td>n Size of data to read</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int 0 if read successfuly, error code from endTransmission if not </dd></dl>
+
+</div>
+</div>
+<a id="a45bd6c915c1fa0998e273f69ee2d2376" name="a45bd6c915c1fa0998e273f69ee2d2376"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45bd6c915c1fa0998e273f69ee2d2376">&#9670;&nbsp;</a></span>readRegister() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -354,7 +591,42 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a10aa7df19e8c7bf12cd720b662f317a3" name="a10aa7df19e8c7bf12cd720b662f317a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10aa7df19e8c7bf12cd720b662f317a3">&#9670;&nbsp;</a></span>sendAddress()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a10aa7df19e8c7bf12cd720b662f317a3">&#9670;&nbsp;</a></span>sendAddress() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int EasyC::sendAddress </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>regAddr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Private function to send a single byte to sensor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">char</td><td>regAddr Address of register to access later</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int Standard endTransmission error codes </dd></dl>
+
+</div>
+</div>
+<a id="a10aa7df19e8c7bf12cd720b662f317a3" name="a10aa7df19e8c7bf12cd720b662f317a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10aa7df19e8c7bf12cd720b662f317a3">&#9670;&nbsp;</a></span>sendAddress() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -389,7 +661,53 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="afe8aa014ae53cad3b0f3c42f59277195" name="afe8aa014ae53cad3b0f3c42f59277195"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe8aa014ae53cad3b0f3c42f59277195">&#9670;&nbsp;</a></span>sendData()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afe8aa014ae53cad3b0f3c42f59277195">&#9670;&nbsp;</a></span>sendData() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int EasyC::sendData </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Private function to write n bytes over i2c. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">char</td><td>a[] Array to read data from </td></tr>
+    <tr><td class="paramname">int</td><td>n Number of bytes to read</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int Standard endTransmission error codes </dd></dl>
+
+</div>
+</div>
+<a id="afe8aa014ae53cad3b0f3c42f59277195" name="afe8aa014ae53cad3b0f3c42f59277195"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe8aa014ae53cad3b0f3c42f59277195">&#9670;&nbsp;</a></span>sendData() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -505,8 +823,9 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="easy_c_8hpp_source.html">easyC.hpp</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="examples_2rfid__simple__test_2libs_2_generic-easy_c_2easy_c_8hpp_source.html">examples/rfid_simple_test/libs/Generic-easyC/easyC.hpp</a></li>
+<li><a class="el" href="src_2libs_2_generic-easy_c_2easy_c_8hpp_source.html">src/libs/Generic-easyC/easyC.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -516,7 +835,7 @@ Public Attributes</h2></td></tr>
     <ul>
         <li class="navelem"><a class="el" href="class_easy_c.html">EasyC</a></li>
         <li class="footer">
-            Generated on Thu Feb 17 2022 12:18:09 for 16x2 easyC LCD Library by <a href="http://www.doxygen.org/index.html">
+            Generated on Thu Apr 7 2022 12:07:26 for 16x2 easyC LCD Library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.

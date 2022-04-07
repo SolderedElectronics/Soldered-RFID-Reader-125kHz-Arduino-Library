@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['easyc_0',['EasyC',['../class_easy_c.html',1,'EasyC'],['../class_easy_c.html#a2ea672a225a32eab52c2b20733fd26bd',1,'EasyC::EasyC()']]],
-  ['easyc_2ehpp_1',['easyC.hpp',['../easy_c_8hpp.html',1,'']]],
-  ['err_2',['err',['../class_easy_c.html#a8b880d5daf116adde0cc436f1e4c0853',1,'EasyC']]]
+  ['checkparity_0',['checkParity',['../classtiny_r_f_i_d.html#af14bdac6ea08f40040cd67939b4542c7',1,'tinyRFID']]],
+  ['checkparityc_1',['checkParityC',['../classtiny_r_f_i_d.html#a62c508d2aa6bf1af4f2287afe113df33',1,'tinyRFID']]],
+  ['checkparityr_2',['checkParityR',['../classtiny_r_f_i_d.html#a3c6ddbdfed60260bdc402204d2582f55',1,'tinyRFID']]],
+  ['checkstopbit_3',['checkStopBit',['../classtiny_r_f_i_d.html#a1d95b9863513548ced36cbbfacb5ac25',1,'tinyRFID']]],
+  ['clear_4',['clear',['../classtiny_r_f_i_d.html#a98551a5f347a0b5e067d064541ed4b2d',1,'tinyRFID::clear()'],['../classslider_pot.html#aa61a919ec89db584fd0d42351c42cac2',1,'sliderPot::clear()']]]
 ];
