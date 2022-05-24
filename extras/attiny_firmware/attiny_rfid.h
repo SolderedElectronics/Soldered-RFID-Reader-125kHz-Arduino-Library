@@ -3,7 +3,7 @@
 
 #include "Arduino.h"
 
-static volatile uint8_t _rfidRawData[32];
+static volatile uint8_t _rfidRawData[24];
 
 static volatile uint16_t _rfidRawDataCnt = 0;
 

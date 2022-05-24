@@ -17,7 +17,7 @@ bool tinyRFID::available()
 	uint64_t _RFIDData = 0;
 	
     // If there is more than 380 data bits stored in array, that means the array is full, so start analyzing data
-	if (_rfidRawDataCnt >= 250)
+	if (_rfidRawDataCnt >= 188)
 	{
 		// Disable interrupts during decoding (save CPU cycles and there is no chance of data corruption from interrutps)
 		PORTA.PIN1CTRL &= ~(PORT_ISC_BOTHEDGES_gc);
@@ -26,7 +26,7 @@ bool tinyRFID::available()
     bool flag_found = 0;
     int16_t rawDataStartIndex = 0;
     uint32_t tempArr = 0;
-    for(uint16_t i = 0; i <  32; i++)
+    for(uint16_t i = 0; i <  24; i++)
     {
       tempArr = 0;
       for(uint8_t j = 0; j < 8; j++)
@@ -70,7 +70,7 @@ bool tinyRFID::available()
 
     // After data analyzing clean buffer/array, reset data array counter and re-enable interrupt
     PORTA.PIN1CTRL |= PORT_ISC_BOTHEDGES_gc;
-    memset(_rfidRawData, 0, 32 * sizeof(uint8_t));
+    memset(_rfidRawData, 0, 24 * sizeof(uint8_t));
     _rfidRawDataCnt = 0;
   }
   return _ret;
@@ -214,12 +214,9 @@ ISR(PORTA_PORT_vect)
     _rfidRawData[(_rfidRawDataCnt + 1) / 8] |= _state << ((_rfidRawDataCnt + 1) % 8);
     _n = 2;
   }
-  else
-    state = !state;
-  digitalWrite(1,state);
 
   // If the buffer is full, stop incrementing counter (maybe better idea is to disable interrupts??)
-  if (_rfidRawDataCnt < 250) _rfidRawDataCnt += _n;
+  if (_rfidRawDataCnt < 188) _rfidRawDataCnt += _n;
 
   // Reset the counter and clear interrupt flags
   PORTA.INTFLAGS |= (1 << 1);
