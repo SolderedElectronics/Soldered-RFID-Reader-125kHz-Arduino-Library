@@ -40,7 +40,7 @@ void loop()
     if ((rfid.getID() != 0) && (last_scan + DEBOUNCE_MS < millis()))
     {
       last_scan = millis();
-      Serial.print(rfid.getID());
+      Serial.println(rfid.getID());
       digitalWrite(PIN_PA4, HIGH);
       delay(5);
       digitalWrite(PIN_PA4, LOW);
