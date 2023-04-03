@@ -3,10 +3,6 @@
 
 #include "Arduino.h"
 
-static volatile uint8_t _rfidRawData[24];
-
-static volatile uint16_t _rfidRawDataCnt = 0;
-
 class tinyRFID
 {
 	public:
@@ -18,10 +14,13 @@ class tinyRFID
 	void clear();
 	
 	private:
-	const uint32_t RFID_HEADER = 0b101010101010101010;
+	const uint32_t RFID_HEADER = 0b101010101010101010UL;
+  const uint32_t RFID_HEADER_MASK = 0b111111111111111111UL;
 	uint64_t _rfidRaw = 0;
 	uint32_t _tagID = 0;
-	
+
+  bool findHeader(uint8_t *_data, int _n, int *_offset, int _skip);
+  bool extractData(uint8_t *_rawData, int _n, uint64_t *_newData, int _offset);
 	void startTimer();
 	void startRFOsc();
 	bool validData(uint64_t _d);
