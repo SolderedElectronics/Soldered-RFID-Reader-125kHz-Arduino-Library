@@ -46,8 +46,8 @@ bool tinyRFID::available()
     // Variable for decoded RFID data.
     uint64_t _RFIDData = 0;
 
-    // If there is more than 170 data bits stored in array, that means the array is full, so start analyzing data
-    if (_rfidRawDataCnt >= (RFID_SAMPLES - 10))
+    // If the buffer is almost full, start analyzing the data stream.
+    if (_rfidRawDataCnt >= (RFID_SAMPLES - 2))
     {
         // Disable interrupts during decoding (save CPU cycles and there is no chance of data corruption from
         // interrutps)
@@ -141,8 +141,6 @@ bool tinyRFID::findHeader(uint8_t *_data, int _n, int *_offset, int _skip)
             // the header and return success.
             if (((temp >> j) & RFID_HEADER_MASK) == RFID_HEADER && (_skipHeader == _skip))
             {
-                // if (_i != NULL) *_i = i;
-                // if (_j != NULL) *_j = j;
                 if (_offset != NULL)
                     *_offset = ((i * 8) + j);
                 return true;
@@ -180,8 +178,6 @@ bool tinyRFID::extractData(uint8_t *_rawData, int _n, uint64_t *_newData, int _o
     // Extract the data!
     for (int i = 0; i < 128; i += 2)
     {
-        // if (!(_rawData[(_offset + i) / 8] & ((_offset + i) % 8)) && (_rawData[(_offset + i + 1) / 8] & ((_offset + i
-        // + 1) % 8)))
         if (!((_rawData[(_offset + i) / 8]) & (1 << ((_offset + i)) % 8)) &&
             ((_rawData[(_offset + i + 1) / 8]) & (1 << ((_offset + i + 1)) % 8)))
         {
@@ -275,13 +271,13 @@ void tinyRFID::clear()
 }
 
 /**
- * @brief       Setup the timerA in split mode and send PWM signal to the pin (125kHz, 40% duty). Needed for the RFID
+ * @brief       Setup the timerA in split mode and send PWM signal to the pin (125kHz, 20% duty). Needed for the RFID
  * coil resonance circuit.
  *
  */
 void tinyRFID::startRFOsc()
 {
-    // This is the timer used for renerating 125kHz, 40% duty cycle.
+    // This is the timer used for renerating 125kHz, 20% duty cycle.
     // It uses TimerA in split mode.
     TCA0.SPLIT.CTRLB = TCA_SPLIT_HCMP0EN_bm;
     TCA0.SPLIT.HPER = 4;
@@ -445,10 +441,10 @@ ISR(PORTA_PORT_vect)
         _n = 2;
     }
 
-    // If the buffer is full, stop incrementing counter (maybe better idea is to disable interrupts??)
+    // If the buffer is full, stop incrementing counter.
     if (_rfidRawDataCnt < RFID_SAMPLES)
         _rfidRawDataCnt += _n;
 
-    // Reset the counter and clear interrupt flags
+    // Clear interrupt flags
     PORTA.INTFLAGS |= (1 << 1);
 }
