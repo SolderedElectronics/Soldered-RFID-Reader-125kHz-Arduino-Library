@@ -1,8 +1,8 @@
 /**
  **************************************************
 
-   @file        Template for attiny_firmware
-   @brief       Fill in sensor specific code.
+   @file        attiny_firmware_uart.ino
+   @brief       Firmware code for ATtiny1604 based RFID breakout with UART communication.
 
                 MCU: ATTINY1604
                 Arduino Core: MegaTiny Core (http://drazzy.com/package_drazzy.com_index.json)
@@ -16,8 +16,7 @@
  timings for Manchester decoding using timer TCB and buzzer freq. millis() / micros(): RTC (no micros)
                 !!!IMPORTANT!!! - choose this options - !!!IMPORTANT!!!
 
-   @authors     Borna Biro @ soldered.com
-                Optimized for ATTINY404 by Goran Juric
+   @authors     Borna Biro, Goran Juric for soldered.com
  ***************************************************/
 
 // Include library for RFID on ATtiny
@@ -26,7 +25,7 @@
 // Include all settings for the ATtiny Firmware
 #include "defines.h"
 
-// Object for ATTINY RFIS Class
+// Object for ATTINY RFID Class
 tinyRFID rfid;
 
 void setup()
@@ -43,10 +42,13 @@ void loop()
         // Check if the ID is valid.
         if (rfid.getID() != 0)
         {
-            // Everything is ok? Send TagID to UART.
+            // Everything is ok? Send TagID and RAW RFID data to UART.
             // Send '$' first to recognize the response packet from the Tag ID packet.
             Serial.print('$');
-            Serial.println(rfid.getID());
+            Serial.print(rfid.getID());
+            Serial.print('&');
+            printDec64(rfid.getRAW());
+            Serial.println();
 
             // Send an interrupt pulse
             pulseINT(INT_PIN_PULSE_MS);
@@ -69,10 +71,10 @@ void initSystem()
     rfid.begin();
 
     // Set interrupt pin as output
-    pinMode(PIN_PA4, OUTPUT);
+    pinMode(INT_PIN, OUTPUT);
 
     // Set it to low
-    digitalWrite(PIN_PA4, LOW);
+    digitalWrite(INT_PIN, LOW);
 
     // Set baud rate pins to input with pull up enabled.
     pinMode(ADDRESS_PIN1, INPUT_PULLUP);
@@ -95,13 +97,13 @@ void initSystem()
 void pulseINT(uint16_t _pulseDelay)
 {
     // Set interrupt pin to high
-    digitalWrite(PIN_PA4, HIGH);
+    digitalWrite(INT_PIN, HIGH);
 
     // Wait a little bit
     delay(_pulseDelay);
 
     // Set interrupt pin to low.
-    digitalWrite(PIN_PA4, LOW);
+    digitalWrite(INT_PIN, LOW);
 }
 
 /**
@@ -164,4 +166,16 @@ void serialResponse()
             Serial.println("#hello");
         }
     }
+}
+
+/**
+ * @brief       Prints out a 64 bit HEX integer (since Arduino Print class cannot print 64 bits).
+ *
+ * @param       uint64_t _n
+ *              64 bit interger that needs to be printed.
+ */
+void printDec64(uint64_t _n)
+{
+    Serial.print((uint32_t)(_n >> 32), HEX);
+    Serial.print((uint32_t)(_n & 0xFFFFFFFF), HEX);
 }

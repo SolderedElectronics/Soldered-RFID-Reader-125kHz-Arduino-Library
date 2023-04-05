@@ -4,7 +4,7 @@
 // Interrupt pulse time (high time) in milliseconds.
 #define INT_PIN_PULSE_MS 10
 
-// Pins always used for address (in this case UART baud rate settings)
+// Pins used for address (in this case UART baud rate settings)
 #define ADDRESS_PIN1 PIN_PA5
 #define ADDRESS_PIN2 PIN_PA6
 #define ADDRESS_PIN3 PIN_PA7
