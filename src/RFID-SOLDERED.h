@@ -1,36 +1,63 @@
 /**
  **************************************************
  *
- * @file        Slider-potentiometer-with-easyC-SOLDERED.h
- * @brief       Basic functions for breakout board with slider potentiometer with easyc
+ * @file        Generic-easyC-SOLDERED.h
+ * @brief       Header file for RFID breakout board.
  *
  *
- * @copyright GNU General Public License v3.0
- * @authors     Goran Juric for soldered.com
+ * @copyright   GNU General Public License v3.0
+ * @authors     Borna Biro for soldered.com
  ***************************************************/
 
-#ifndef _easyC_
-#define _easyC_
+#ifndef __RFID_BOARD__
+#define __RFID_BOARD__
 
+#include "Arduino.h"
 #include "libs/Generic-easyC/easyC.hpp"
 
-class sliderPot : public EasyC
+#if defined(ARDUINO_ESP32_DEV)
+#include "libs/ESPSoftwareSerial/ESPSoftwareSerial.h"
+#else
+#include "SoftwareSerial.h"
+#endif
 
+// How long serial will still try to get the data from the last char that has been received.
+#define SERIAL_TIMEOUT_MS 10
+
+class Rfid : public EasyC
 {
-
   public:
-    uint64_t getRaw(void);
-    uint32_t getID(void);
-    uint8_t available(void);
-    void clear(void);
+    Rfid();
+    Rfid(int _rxPin, int _txPin, uint32_t _baud);
+    bool checkHW();
+    bool available();
+    uint32_t getId();
+    uint64_t getRaw();
 
   protected:
-    void initializeNative(){};
+    void initializeNative();
 
   private:
-    int pin;
-    uint64_t value;
-    char raw[8];
+    bool getTheSerialData(char *_data, int _n, int _serialTimeout);
+    int hexToInt(char _c);
+    uint64_t getUint64(char *_c);
+    uint64_t get16Base(int _exp);
+
+    // Software Serial UART pins.
+    int rxPin;
+    int txPin;
+
+    // Software Serial baud rate. Default is 9600.
+    int baudRate;
+
+    // Software serial object (used for serial communication with RFID breakout board).
+    SoftwareSerial *rfidSerial;
+
+    // Variables that holds the tagID for the serial.
+    uint32_t tagID = 0;
+
+    // Variables that holds the RFID RAW data for the serial.
+    uint64_t rfidRAW = 0;
 };
 
-#endif // !_easyC_
+#endif
