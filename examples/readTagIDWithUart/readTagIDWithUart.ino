@@ -2,7 +2,7 @@
  **************************************************
  *
  * @file        readTagIDWithUart.ino
- * @brief       Simple example that shows hor to read the RFID Tag ID using Soldered RFID brekaout and Serial (UART)
+ * @brief       Simple example that shows how to read the RFID Tag ID using Soldered RFID brekaout and Serial (UART)
  *communication. Connect the module with Dasduino board, connect RFID antenna to the breakout board, upload the code and
  *open the serial monitor. As soon as you place the 125kHz RFID Tag (or card) near antenna, you should see Tag ID
  *number.
@@ -22,7 +22,6 @@
  *
  *              Also, do not forget to change the communication speed in the RFID library constructor.
  *
- * 
  *	product: www.solde.red/333154
  *
  * @authors     Borna Biro for Soldered.com
@@ -75,29 +74,12 @@ void loop()
         Serial.print("Tag available! Tag ID: ");
         Serial.print(rfid.getId());
         Serial.print(" RAW RFID Data: ");
-        printHex64(rfid.getRaw());
+
+        // Print out a RAW RFID data (with RFID header, RFID data, parity bits, etc).
+        // Special function must be used in order to print 64 bit int.
+        rfid.printHex64(rfid.getRaw());
+
+        // Send a new line at the end.
         Serial.println();
     }
-}
-
-void printHex64(uint64_t _number)
-{
-    char _temp[17];
-    
-    for (int i = 60; i >= 0; i-=4)
-    {
-        _temp[15 - (i / 4)] = intToHex((_number >> i) & 0x0F);
-    }
-    
-    _temp[16] = '\0';
-    
-    Serial.print(_temp);
-}
-
-char intToHex(uint8_t _n)
-{
-    _n &= 0x0F;
-    
-    if (_n >= 0 && _n <= 9) return (_n + '0');
-    if (_n >= 10 && _n <= 15) return (_n - 10) + 'A';
 }

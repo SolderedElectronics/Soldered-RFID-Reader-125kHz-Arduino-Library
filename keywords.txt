@@ -1,17 +1,20 @@
 ##################################################
-# Syntax Coloring Map For Obstacle-Sensor-SOLDERED
+# Syntax Coloring Map For RFID-Soldered
 ##################################################
 
 ##################################################
 # Datatypes (KEYWORD1)
 ##################################################
-
+Rfid	KEYWORD1
 ##################################################
 # Methods and Functions (KEYWORD2)
 ##################################################
-
 begin	KEYWORD2
-
+checkHW	KEYWORD2
+available	KEYWORD2
+getId	KEYWORD2
+getRaw	KEYWORD2
+printHex64	KEYWORD2
 ##################################################
 # Constants (LITERAL1)
 ##################################################

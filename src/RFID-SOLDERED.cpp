@@ -1,12 +1,12 @@
 /**
  **************************************************
  *
- * @file        Generic-easyC-SOLDERED.cpp
+ * @file        RFID-SOLDERED.cpp
  * @brief       RFID functions and methods.
  *
  *
- * @copyright GNU General Public License v3.0
- * @authors   Borna Biro for soldered.com
+ * @copyright   GNU General Public License v3.0
+ * @authors     Borna Biro for soldered.com
  ***************************************************/
 
 
@@ -183,6 +183,26 @@ uint64_t Rfid::getRaw()
     return _rfidRaw;
 }
 
+void Rfid::printHex64(uint64_t _number)
+{
+    // Temporary array for storing 64 bit HEX value.
+    char _temp[17];
+
+    // Convert 64 bit integer into HEX char array (since Arduino can't print 64 bit numbers).
+    for (int i = 60; i >= 0; i -= 4)
+    {
+        // Go trough the whole 64 bit number, take 4 bits, convert them into char (HEX char), store them and move by
+        // next 4 bits.
+        _temp[15 - (i / 4)] = intToHex((_number >> i) & 0x0F);
+    }
+
+    // Add null-terminating char at the end of the string.
+    _temp[16] = '\0';
+
+    // Print hex int to the serial.
+    Serial.print(_temp);
+}
+
 bool Rfid::getTheSerialData(char *_data, int _n, int _serialTimeout)
 {
     // Holds success of getting the serial data.
@@ -268,4 +288,18 @@ uint64_t Rfid::get16Base(int _exp)
     }
 
     return _result;
+}
+
+char Rfid::intToHex(uint8_t _n)
+{
+    // Only numbers from 0 to 15 are allowed.
+    _n &= 0x0F;
+
+    // If the number is between 0 and 9, convert it into ASCII number.
+    if (_n >= 0 && _n <= 9)
+        return (_n + '0');
+
+    // If the number is between 10 and 15, convert it into ASCII letter (from A to F).
+    if (_n >= 10 && _n <= 15)
+        return (_n - 10) + 'A';
 }
