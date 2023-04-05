@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tagid_0',['tagID',['../class_rfid.html#a5c9ee8a119790ec88f625c4b2f128656',1,'Rfid']]],
-  ['txpin_1',['txPin',['../class_rfid.html#a8cdaa810c5a71200892e9262da0fe7c5',1,'Rfid']]]
+  ['last_0',['last',['../classdelegate_1_1detail_1_1_multi_delegate_p_impl.html#a52286b8915d7936483822b0495ebd37f',1,'delegate::detail::MultiDelegatePImpl']]],
+  ['load_1',['load',['../classstd_1_1atomic.html#a739d3a97c7689e2541d57dd4b5c2d900',1,'std::atomic']]]
 ];

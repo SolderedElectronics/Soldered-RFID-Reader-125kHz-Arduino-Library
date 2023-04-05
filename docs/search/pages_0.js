@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['naziv_20proizvoda_20arduino_20library_0',['NAZIV PROIZVODA Arduino library',['../index.html',1,'']]]
+  ['soldered_20125khz_20rfid_20board_20arduino_20library_0',['Soldered 125kHz RFID board Arduino library',['../index.html',1,'']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['baudrate_0',['baudRate',['../class_rfid.html#acdea78beea32f3a20133844e02a7e053',1,'Rfid']]],
-  ['begindone_1',['beginDone',['../class_easy_c.html#a2f55de657a84e73edda23dae91d30436',1,'EasyC']]]
+  ['address_0',['address',['../class_easy_c.html#a6f4c6f2e8723b0c0495e126d49f5fcda',1,'EasyC']]]
 ];

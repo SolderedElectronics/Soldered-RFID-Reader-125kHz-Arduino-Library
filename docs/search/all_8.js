@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['native_0',['native',['../class_easy_c.html#abb766b60f26778dbc64e8792fd754729',1,'EasyC']]],
-  ['naziv_20proizvoda_20arduino_20library_1',['NAZIV PROIZVODA Arduino library',['../index.html',1,'']]]
+  ['hextoint_0',['hexToInt',['../class_rfid.html#a46134bbe774b31f856862e07dcfffc50',1,'Rfid']]]
 ];
