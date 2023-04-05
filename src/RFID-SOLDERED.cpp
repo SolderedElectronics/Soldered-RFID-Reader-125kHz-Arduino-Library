@@ -223,7 +223,7 @@ void Rfid::printHex64(uint64_t _number)
  *                          Size of the data buffer.
  * @param                   int _serialTimeout
  *                          Timeout from the last received char.
- * 
+ *
  * @return                  bool - Return true if there is some data available, false if not.
  */
 bool Rfid::getTheSerialData(char *_data, int _n, int _serialTimeout)
@@ -282,7 +282,7 @@ bool Rfid::getTheSerialData(char *_data, int _n, int _serialTimeout)
  *
  * @param                   char *_c
  *                          Char array that holds 64 bit HEX char array.
- * 
+ *
  * @return                  uint64_t - 64 bit integer.
  */
 uint64_t Rfid::getUint64(char *_c)
@@ -305,7 +305,7 @@ uint64_t Rfid::getUint64(char *_c)
  *
  * @param                   char *_c
  *                          Char that holds HEX char.
- * 
+ *
  * @return                  int - Converted HEX char into integer (from 0 to 15).
  */
 int Rfid::hexToInt(char _c)
@@ -330,7 +330,7 @@ int Rfid::hexToInt(char _c)
  *
  * @param                   int _exp
  *                          Exponent (pow(16, _exp) alternative).
- * 
+ *
  * @return                  uint64_t - Calculated value for the given exponent to the 16 base.
  */
 uint64_t Rfid::get16Base(int _exp)
@@ -357,7 +357,7 @@ uint64_t Rfid::get16Base(int _exp)
  *
  * @param                   uint8_t _n
  *                          Number that will be converted into HEX char.
- * 
+ *
  * @return                  char - Converted HEX char.
  */
 char Rfid::intToHex(uint8_t _n)
