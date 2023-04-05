@@ -94,7 +94,7 @@ bool Rfid::available()
     if (native)
     {
         // Local serial buffer for storing the response.
-        char _serailBuffer[25];
+        char _serailBuffer[30];
 
         // If the data is available and it's valid, return success.
         if (getTheSerialData(_serailBuffer, sizeof(_serailBuffer) / sizeof(char), SERIAL_TIMEOUT_MS))
@@ -179,7 +179,7 @@ uint64_t Rfid::getRaw()
         readData((char *)(&_rfidRaw), 8);
     }
 
-    // Retrun the result.
+    // Return the result.
     return _rfidRaw;
 }
 
@@ -234,16 +234,6 @@ bool Rfid::getTheSerialData(char *_data, int _n, int _serialTimeout)
     return false;
 }
 
-int Rfid::hexToInt(char _c)
-{
-    if ((_c >= '0') && (_c <= '9'))
-        return (_c - '0');
-    if ((_c >= 'A') && (_c <= 'F'))
-        return ((_c - 'A') + 10);
-
-    return 0;
-}
-
 uint64_t Rfid::getUint64(char *_c)
 {
     uint64_t result = 0;
@@ -253,6 +243,16 @@ uint64_t Rfid::getUint64(char *_c)
     }
 
     return result;
+}
+
+int Rfid::hexToInt(char _c)
+{
+    if ((_c >= '0') && (_c <= '9'))
+        return (_c - '0');
+    if ((_c >= 'A') && (_c <= 'F'))
+        return ((_c - 'A') + 10);
+
+    return 0;
 }
 
 uint64_t Rfid::get16Base(int _exp)

@@ -73,6 +73,31 @@ void loop()
     {
         // If there is, read it and print it on the serial.
         Serial.print("Tag available! Tag ID: ");
-        Serial.println(rfid.getId());
+        Serial.print(rfid.getId());
+        Serial.print(" RAW RFID Data: ");
+        printHex64(rfid.getRaw());
+        Serial.println();
     }
+}
+
+void printHex64(uint64_t _number)
+{
+    char _temp[17];
+    
+    for (int i = 60; i >= 0; i-=4)
+    {
+        _temp[15 - (i / 4)] = intToHex((_number >> i) & 0x0F);
+    }
+    
+    _temp[16] = '\0';
+    
+    Serial.print(_temp);
+}
+
+char intToHex(uint8_t _n)
+{
+    _n &= 0x0F;
+    
+    if (_n >= 0 && _n <= 9) return (_n + '0');
+    if (_n >= 10 && _n <= 15) return (_n - 10) + 'A';
 }

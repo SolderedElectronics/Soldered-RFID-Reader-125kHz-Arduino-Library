@@ -16,7 +16,7 @@
  timings for Manchester decoding using timer TCB and buzzer freq. millis() / micros(): RTC (no micros)
                 !!!IMPORTANT!!! - choose this options - !!!IMPORTANT!!!
 
-   @authors     Borna Biro, Goran Juric for soldered.com
+   @authors     Borna Biro for soldered.com
  ***************************************************/
 
 // Include library for RFID on ATtiny
@@ -47,7 +47,7 @@ void loop()
             Serial.print('$');
             Serial.print(rfid.getID());
             Serial.print('&');
-            printDec64(rfid.getRAW());
+            printHex64(rfid.getRAW());
             Serial.println();
 
             // Send an interrupt pulse
@@ -171,11 +171,27 @@ void serialResponse()
 /**
  * @brief       Prints out a 64 bit HEX integer (since Arduino Print class cannot print 64 bits).
  *
- * @param       uint64_t _n
+ * @param       uint64_t _number
  *              64 bit interger that needs to be printed.
  */
-void printDec64(uint64_t _n)
+void printHex64(uint64_t _number)
 {
-    Serial.print((uint32_t)(_n >> 32), HEX);
-    Serial.print((uint32_t)(_n & 0xFFFFFFFF), HEX);
+    char _temp[17];
+    
+    for (int i = 60; i >= 0; i-=4)
+    {
+        _temp[15 - (i / 4)] = intToHex((_number >> i) & 0x0F);
+    }
+    
+    _temp[16] = '\0';
+    
+    Serial.print(_temp);
+}
+
+char intToHex(uint8_t _n)
+{
+    _n &= 0x0F;
+    
+    if (_n >= 0 && _n <= 9) return (_n + '0');
+    if (_n >= 10 && _n <= 15) return (_n - 10) + 'A';
 }

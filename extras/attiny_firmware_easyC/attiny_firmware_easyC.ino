@@ -16,7 +16,7 @@
  timings for Manchester decoding using timer TCB and buzzer freq. millis() / micros(): RTC (no micros)
                 !!!IMPORTANT!!! - choose this options - !!!IMPORTANT!!!
 
-   @authors     Borna Biro, Goran Juric for soldered.com
+   @authors     Borna Biro for soldered.com
  ***************************************************/
 
 // Include the library for the Wire / I2C library.
