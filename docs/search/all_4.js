@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['defaultaddress_0',['defaultAddress',['../class_easy_c.html#a9052ae674b3553bbb19283278299f395',1,'EasyC']]],
-  ['disabletone_1',['disableTone',['../classtiny_r_f_i_d.html#a267fdf229025ccbe60a28b3619c967c9',1,'tinyRFID']]]
+  ['easyc_0',['EasyC',['../class_easy_c.html',1,'EasyC'],['../class_easy_c.html#a2ea672a225a32eab52c2b20733fd26bd',1,'EasyC::EasyC()']]],
+  ['easyc_2ehpp_1',['easyC.hpp',['../easy_c_8hpp.html',1,'']]],
+  ['err_2',['err',['../class_easy_c.html#a8b880d5daf116adde0cc436f1e4c0853',1,'EasyC']]]
 ];
