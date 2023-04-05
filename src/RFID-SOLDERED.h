@@ -1,7 +1,7 @@
 /**
  **************************************************
  *
- * @file        Generic-easyC-SOLDERED.h
+ * @file        RFID-SOLDERED.h
  * @brief       Header file for RFID breakout board.
  *
  *
@@ -33,6 +33,7 @@ class Rfid : public EasyC
     bool available();
     uint32_t getId();
     uint64_t getRaw();
+    void printHex64(uint64_t _number);
 
   protected:
     void initializeNative();
@@ -42,6 +43,7 @@ class Rfid : public EasyC
     uint64_t getUint64(char *_c);
     int hexToInt(char _c);
     uint64_t get16Base(int _exp);
+    char intToHex(uint8_t _n);
 
     // Software Serial UART pins.
     int rxPin;
