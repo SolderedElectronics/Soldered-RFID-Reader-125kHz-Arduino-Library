@@ -214,6 +214,18 @@ void Rfid::printHex64(uint64_t _number)
     Serial.print(_temp);
 }
 
+/**
+ * @brief                   Function gets the data from the serial.
+ *
+ * @param                   char *_data
+ *                          Ponter to the data buffer.
+ * @param                   int _n
+ *                          Size of the data buffer.
+ * @param                   int _serialTimeout
+ *                          Timeout from the last received char.
+ * 
+ * @return                  bool - Return true if there is some data available, false if not.
+ */
 bool Rfid::getTheSerialData(char *_data, int _n, int _serialTimeout)
 {
     // Holds success of getting the serial data.
@@ -265,6 +277,14 @@ bool Rfid::getTheSerialData(char *_data, int _n, int _serialTimeout)
     return false;
 }
 
+/**
+ * @brief                   Converts HEX char array into 64 bit number (integer).
+ *
+ * @param                   char *_c
+ *                          Char array that holds 64 bit HEX char array.
+ * 
+ * @return                  uint64_t - 64 bit integer.
+ */
 uint64_t Rfid::getUint64(char *_c)
 {
     // Initialize variable for the result (must be initialized to zero).
@@ -280,6 +300,14 @@ uint64_t Rfid::getUint64(char *_c)
     return result;
 }
 
+/**
+ * @brief                   Converts HEX char into integer from 0 to 15.
+ *
+ * @param                   char *_c
+ *                          Char that holds HEX char.
+ * 
+ * @return                  int - Converted HEX char into integer (from 0 to 15).
+ */
 int Rfid::hexToInt(char _c)
 {
     // Variable used to store return value.
@@ -297,6 +325,14 @@ int Rfid::hexToInt(char _c)
     return _result;
 }
 
+/**
+ * @brief                   Calculates 16 base number for the given exponent.
+ *
+ * @param                   int _exp
+ *                          Exponent (pow(16, _exp) alternative).
+ * 
+ * @return                  uint64_t - Calculated value for the given exponent to the 16 base.
+ */
 uint64_t Rfid::get16Base(int _exp)
 {
     // Variable that holds the result. Must be initialized to 1 (due to multiplication).
@@ -316,6 +352,14 @@ uint64_t Rfid::get16Base(int _exp)
     return _result;
 }
 
+/**
+ * @brief                   Converts integer (from 0 to 15) to HEX char.
+ *
+ * @param                   uint8_t _n
+ *                          Number that will be converted into HEX char.
+ * 
+ * @return                  char - Converted HEX char.
+ */
 char Rfid::intToHex(uint8_t _n)
 {
     // Only numbers from 0 to 15 are allowed.
