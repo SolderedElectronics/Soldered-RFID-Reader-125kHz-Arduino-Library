@@ -157,6 +157,11 @@ uint32_t Rfid::getId()
     return _tagID;
 }
 
+/**
+ * @brief                   Get the RFID RAW data with the headers, RAW Data, parity bits, etc.
+ *
+ * @return                  uint64_t - Returns 64 bit long RAW RFID data.
+ */
 uint64_t Rfid::getRaw()
 {
     uint64_t _rfidRaw;
@@ -183,6 +188,12 @@ uint64_t Rfid::getRaw()
     return _rfidRaw;
 }
 
+/**
+ * @brief                  Prints out 64 bit number in HEX format in Serial.
+ *
+ * @param                  uint64_t _number
+ *                         64 bit numer that will be printed in serial in HEX format.
+ */
 void Rfid::printHex64(uint64_t _number)
 {
     // Temporary array for storing 64 bit HEX value.
@@ -256,37 +267,52 @@ bool Rfid::getTheSerialData(char *_data, int _n, int _serialTimeout)
 
 uint64_t Rfid::getUint64(char *_c)
 {
+    // Initialize variable for the result (must be initialized to zero).
     uint64_t result = 0;
+
+    // Convert every HEX char into integer (old school method converting HEX base to decimal base).
     for (int i = 0; i < 16; i++)
     {
         result += (uint64_t)(get16Base(15 - i)) * hexToInt(_c[i]);
     }
 
+    // Return the result of the conversion.
     return result;
 }
 
 int Rfid::hexToInt(char _c)
 {
-    if ((_c >= '0') && (_c <= '9'))
-        return (_c - '0');
-    if ((_c >= 'A') && (_c <= 'F'))
-        return ((_c - 'A') + 10);
+    // Variable used to store return value.
+    char _result = 0;
 
-    return 0;
+    // If the char is from 0 to 9 in ASCII, convert it to the number from 0 to 9.
+    if ((_c >= '0') && (_c <= '9'))
+        _result = _c - '0';
+
+    // If the char is from A to F into ASCII, convert it to the number from 10 to 15.
+    if ((_c >= 'A') && (_c <= 'F'))
+        _result = (_c - 'A') + 10;
+
+    // Return the result.
+    return _result;
 }
 
 uint64_t Rfid::get16Base(int _exp)
 {
+    // Variable that holds the result. Must be initialized to 1 (due to multiplication).
     uint64_t _result = 1;
 
+    // If the exponent 0, return 1 (math).
     if (_exp == 0)
         return 1;
 
+    // Otherwise, calculate it.
     for (int i = 0; i < _exp; i++)
     {
         _result *= 16;
     }
 
+    // Return the result.
     return _result;
 }
 
@@ -295,11 +321,17 @@ char Rfid::intToHex(uint8_t _n)
     // Only numbers from 0 to 15 are allowed.
     _n &= 0x0F;
 
+    // Variable used to store return value.
+    char _result = 0;
+
     // If the number is between 0 and 9, convert it into ASCII number.
     if (_n >= 0 && _n <= 9)
-        return (_n + '0');
+        _result = _n + '0';
 
     // If the number is between 10 and 15, convert it into ASCII letter (from A to F).
     if (_n >= 10 && _n <= 15)
-        return (_n - 10) + 'A';
+        _result = (_n - 10) + 'A';
+
+    // Return the result.
+    return _result;
 }

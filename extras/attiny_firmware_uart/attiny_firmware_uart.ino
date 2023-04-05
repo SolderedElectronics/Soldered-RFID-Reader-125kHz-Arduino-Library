@@ -188,6 +188,14 @@ void printHex64(uint64_t _number)
     Serial.print(_temp);
 }
 
+/**
+ * @brief       Converts 4 bit integer into HEX char
+ *
+ * @param       uint8_t _n
+ *              4 bit number that will be converted into HEX char. Only lower 4 bit will be used.
+ * 
+ * @return      char - ASCII char converted from input number into HEX.
+ */
 char intToHex(uint8_t _n)
 {
     _n &= 0x0F;
