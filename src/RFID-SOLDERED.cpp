@@ -46,7 +46,7 @@ bool Rfid::checkHW()
         // Send a ping command and wait for UART to sent it.
         rfidSerial->println("#rfping");
         rfidSerial->flush();
-        
+
         // Wait a little bit.
         delay(15);
 
@@ -62,7 +62,7 @@ bool Rfid::checkHW()
                 // If it is, return true.
                 return true;
             }
-        }        
+        }
     }
     else
     {
@@ -82,7 +82,7 @@ bool Rfid::checkHW()
 
 /**
  * @brief                   Check if there is new RFID data available.
- * 
+ *
  * @return                  bool - True if available, false if not.
  */
 bool Rfid::available()
@@ -94,10 +94,10 @@ bool Rfid::available()
     if (native)
     {
         // Local serial buffer for storing the response.
-        char _serailBuffer[25];
+        char _serailBuffer[30];
 
         // If the data is available and it's valid, return success.
-        if(getTheSerialData(_serailBuffer, sizeof(_serailBuffer) / sizeof(char), SERIAL_TIMEOUT_MS))
+        if (getTheSerialData(_serailBuffer, sizeof(_serailBuffer) / sizeof(char), SERIAL_TIMEOUT_MS))
         {
             // Try to get the RFID tag ID.
             char *_tagIdStart = strchr(_serailBuffer, '$');
@@ -109,7 +109,8 @@ bool Rfid::available()
                 rfidRAW = getUint64(_tagRawStart + 1);
 
                 // Check if the result is non-zero.
-                if (tagID && rfidRAW) _availableFlag = true;
+                if (tagID && rfidRAW)
+                    _availableFlag = true;
             }
         }
     }
@@ -119,7 +120,7 @@ bool Rfid::available()
         sendAddress(0);
 
         // Read the data (but first cast it to char*).
-        readData((char*)(&_availableFlag), 1);
+        readData((char *)(&_availableFlag), 1);
     }
 
     return _availableFlag;
@@ -127,7 +128,7 @@ bool Rfid::available()
 
 /**
  * @brief                   Get the RFID Tag ID number.
- * 
+ *
  * @return                  uint32_t - Returns 32 bit tag ID number and clear it after reading.
  */
 uint32_t Rfid::getId()
@@ -149,7 +150,7 @@ uint32_t Rfid::getId()
 
         // Read the data (but first cast it to char*). RFID data is 4 bytes.
         // Tag ID is automatically cleared in the breakout after reading it.
-        readData((char*)(&_tagID), 4);
+        readData((char *)(&_tagID), 4);
     }
 
     // Retrun the result.
@@ -175,10 +176,10 @@ uint64_t Rfid::getRaw()
 
         // Read the data (but first cast it to char*). RFID RAW data is 8 bytes.
         // RFID RAW data, is automatically cleared in the breakout after reading it.
-        readData((char*)(&_rfidRaw), 8);
+        readData((char *)(&_rfidRaw), 8);
     }
 
-    // Retrun the result.
+    // Return the result.
     return _rfidRaw;
 }
 
@@ -189,7 +190,7 @@ bool Rfid::getTheSerialData(char *_data, int _n, int _serialTimeout)
 
     // Capture the current millis state (needed for the timeout).
     unsigned long _timeout = millis();
-    
+
     // Used for indexing the array.
     int n = 0;
 
@@ -216,7 +217,6 @@ bool Rfid::getTheSerialData(char *_data, int _n, int _serialTimeout)
                     // Drop the incoming data.
                     rfidSerial->read();
                 }
-
             }
         }
     }
@@ -234,14 +234,6 @@ bool Rfid::getTheSerialData(char *_data, int _n, int _serialTimeout)
     return false;
 }
 
-int Rfid::hexToInt(char _c)
-{
-    if ((_c >= '0') && (_c <= '9')) return (_c - '0');
-    if ((_c >= 'A') && (_c <= 'F')) return ((_c - 'A') + 10);
-    
-    return 0;
-}
-
 uint64_t Rfid::getUint64(char *_c)
 {
     uint64_t result = 0;
@@ -249,20 +241,31 @@ uint64_t Rfid::getUint64(char *_c)
     {
         result += (uint64_t)(get16Base(15 - i)) * hexToInt(_c[i]);
     }
-    
+
     return result;
+}
+
+int Rfid::hexToInt(char _c)
+{
+    if ((_c >= '0') && (_c <= '9'))
+        return (_c - '0');
+    if ((_c >= 'A') && (_c <= 'F'))
+        return ((_c - 'A') + 10);
+
+    return 0;
 }
 
 uint64_t Rfid::get16Base(int _exp)
 {
     uint64_t _result = 1;
 
-    if (_exp == 0)  return 1;
+    if (_exp == 0)
+        return 1;
 
     for (int i = 0; i < _exp; i++)
     {
         _result *= 16;
     }
-    
+
     return _result;
 }

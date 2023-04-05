@@ -39,8 +39,8 @@ class Rfid : public EasyC
 
   private:
     bool getTheSerialData(char *_data, int _n, int _serialTimeout);
-    int hexToInt(char _c);
     uint64_t getUint64(char *_c);
+    int hexToInt(char _c);
     uint64_t get16Base(int _exp);
 
     // Software Serial UART pins.
