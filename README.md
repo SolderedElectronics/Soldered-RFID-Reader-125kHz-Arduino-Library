@@ -18,7 +18,7 @@
 - **/examples** - examples for using the library
 - **_other_** - _keywords_ file highlights function words in your IDE, _library.properties_ enables implementation with Arduino Library Manager.
 
-### Hardware design
+### Hardware design 
 
 You can find hardware design for this board in 125kHz RFID board with UART or 125kHz RFID board with easyC hardware repository
 
