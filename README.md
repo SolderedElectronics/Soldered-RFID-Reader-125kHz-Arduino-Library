@@ -10,7 +10,7 @@
 | :------------------------------------------------------------------------------------: |
 |                      [125kHz RFID board with easyC](https://www.solde.red/333272)                      |
 
-OPIS PROIZVODA + LINK NA [easyC ecosystem](https://www.soldered.com/easyC).
+125kHz RFID board Arduino library is compliant with [easyC ecosystem](https://www.soldered.com/easyC).
 
 ### Repository Contents
 
@@ -26,7 +26,7 @@ You can find hardware design for this board in 125kHz RFID board with UART or 12
 
 Access Arduino library documentation [here](https://SolderedElectronics.github.io/Soldered-RFID-Reader-125kHz-Arduino-Library/).
 
-- Tutorial for using the NAZIV PROIZVODA board
+- Tutorial for using the 125kHz RFID board with UART or 125kHz RFID board with easyC
 - Installing an Arduino library
 
 ### Board compatibility
