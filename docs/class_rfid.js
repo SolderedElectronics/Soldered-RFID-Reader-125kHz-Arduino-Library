@@ -4,6 +4,7 @@ var class_rfid =
     [ "Rfid", "class_rfid.html#aa7553e945aa27b9b87cf07c12d695db5", null ],
     [ "available", "class_rfid.html#a72ffd3c0fa3be116cf55a29df33f5895", null ],
     [ "checkHW", "class_rfid.html#a50746d84747a885161b2fedd63c9e8d7", null ],
+    [ "clear", "class_rfid.html#ab3bc95e013eff5ea062828c5125e6969", null ],
     [ "get16Base", "class_rfid.html#a7e893f1dbd407c455b05981f00d8a6cb", null ],
     [ "getId", "class_rfid.html#a97e29e3b8485d16028bcf24c7684f00c", null ],
     [ "getRaw", "class_rfid.html#aeb50081a714f73c8e1ad00c381f9c59b", null ],

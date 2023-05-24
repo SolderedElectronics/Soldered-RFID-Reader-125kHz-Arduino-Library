@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['m_5fbuffer_0',['m_buffer',['../classcircular__queue.html#a9e73a870fce40fdee7841d09a3cd628f',1,'circular_queue::m_buffer()'],['../classcircular__queue.html#a8fce21b58acac06f19c17d4bdd1e8c58',1,'circular_queue::m_buffer()']]],
+  ['m_5fbuffer_0',['m_buffer',['../classcircular__queue.html#a9e73a870fce40fdee7841d09a3cd628f',1,'circular_queue::m_buffer'],['../classcircular__queue.html#a8fce21b58acac06f19c17d4bdd1e8c58',1,'circular_queue::m_buffer']]],
   ['m_5fbufsize_1',['m_bufSize',['../classcircular__queue.html#acf31ef42ec94255b2f40f7101c36ada4',1,'circular_queue']]],
   ['m_5finpos_2',['m_inPos',['../classcircular__queue.html#ab1863bcdf48683a4a895089f03e2b1ce',1,'circular_queue']]],
   ['m_5foutpos_3',['m_outPos',['../classcircular__queue.html#afc6a18882d66d777b6c865da135d17eb',1,'circular_queue']]],

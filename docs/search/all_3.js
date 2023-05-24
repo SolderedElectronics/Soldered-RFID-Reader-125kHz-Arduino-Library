@@ -7,5 +7,6 @@ var searchData=
   ['circular_5fqueue_3c_20t_2c_20void_20_3e_4',['circular_queue&lt; T, void &gt;',['../classcircular__queue.html',1,'']]],
   ['circular_5fqueue_5fmp_5',['circular_queue_mp',['../classcircular__queue__mp.html',1,'circular_queue_mp&lt; T, ForEachArg &gt;'],['../classcircular__queue__mp.html#ab801cfdc260aaa7dfd673544c93e844b',1,'circular_queue_mp::circular_queue_mp()=default'],['../classcircular__queue__mp.html#a5e7be99506b1445a35137acda7235782',1,'circular_queue_mp::circular_queue_mp(const size_t capacity)'],['../classcircular__queue__mp.html#a6e84144c1d445eeccfa195fd7b7d3c65',1,'circular_queue_mp::circular_queue_mp(circular_queue&lt; T, ForEachArg &gt; &amp;&amp;cq)']]],
   ['circular_5fqueue_5fmp_2eh_6',['circular_queue_mp.h',['../circular__queue__mp_8h.html',1,'']]],
-  ['current_7',['current',['../classdelegate_1_1detail_1_1_multi_delegate_p_impl_1_1iterator.html#a5bb518457ed386731bd6a1c397030a5f',1,'delegate::detail::MultiDelegatePImpl::iterator']]]
+  ['clear_7',['clear',['../class_rfid.html#ab3bc95e013eff5ea062828c5125e6969',1,'Rfid']]],
+  ['current_8',['current',['../classdelegate_1_1detail_1_1_multi_delegate_p_impl_1_1iterator.html#a5bb518457ed386731bd6a1c397030a5f',1,'delegate::detail::MultiDelegatePImpl::iterator']]]
 ];

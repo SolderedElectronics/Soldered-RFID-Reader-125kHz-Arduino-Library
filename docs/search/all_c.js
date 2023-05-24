@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['m_5fbuffer_0',['m_buffer',['../classcircular__queue.html#a8fce21b58acac06f19c17d4bdd1e8c58',1,'circular_queue::m_buffer()'],['../classcircular__queue.html#a9e73a870fce40fdee7841d09a3cd628f',1,'circular_queue::m_buffer()']]],
+  ['m_5fbuffer_0',['m_buffer',['../classcircular__queue.html#a8fce21b58acac06f19c17d4bdd1e8c58',1,'circular_queue::m_buffer'],['../classcircular__queue.html#a9e73a870fce40fdee7841d09a3cd628f',1,'circular_queue::m_buffer']]],
   ['m_5fbufsize_1',['m_bufSize',['../classcircular__queue.html#acf31ef42ec94255b2f40f7101c36ada4',1,'circular_queue']]],
   ['m_5finpos_2',['m_inPos',['../classcircular__queue.html#ab1863bcdf48683a4a895089f03e2b1ce',1,'circular_queue']]],
   ['m_5foutpos_3',['m_outPos',['../classcircular__queue.html#afc6a18882d66d777b6c865da135d17eb',1,'circular_queue']]],
   ['m_5fpushmtx_4',['m_pushMtx',['../classcircular__queue__mp.html#aefea7da83c9cee346e130373ea0913bb',1,'circular_queue_mp']]],
   ['mdelegate_5',['mDelegate',['../structdelegate_1_1detail_1_1_multi_delegate_p_impl_1_1_node__t.html#adc93a67801ffc38d0143cdd411520a9e',1,'delegate::detail::MultiDelegatePImpl::Node_t']]],
-  ['memory_5forder_6',['memory_order',['../namespacestd.html#ae2a064461118d404041c13e66a930220',1,'std::memory_order()'],['../namespacestd.html#ab4f8c60de95c10793a8e3e27fcb800d9',1,'std::memory_order()']]],
+  ['memory_5forder_6',['memory_order',['../namespacestd.html#ae2a064461118d404041c13e66a930220',1,'std::memory_order'],['../namespacestd.html#ab4f8c60de95c10793a8e3e27fcb800d9',1,'std::memory_order']]],
   ['memory_5forder_5facquire_7',['memory_order_acquire',['../namespacestd.html#ab4f8c60de95c10793a8e3e27fcb800d9a3a421c29d868caf6b2ac9895eb8ddddc',1,'std']]],
   ['memory_5forder_5frelaxed_8',['memory_order_relaxed',['../namespacestd.html#ab4f8c60de95c10793a8e3e27fcb800d9a0b64c8ee639be9a1003a33b0f46f26a8',1,'std']]],
   ['memory_5forder_5frelease_9',['memory_order_release',['../namespacestd.html#ab4f8c60de95c10793a8e3e27fcb800d9a235e521b22d3e6a6ab51207a9aeca64f',1,'std']]],
