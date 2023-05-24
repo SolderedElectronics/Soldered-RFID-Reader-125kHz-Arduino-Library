@@ -116,7 +116,7 @@ void pulseINT(uint16_t _pulseDelay)
 
 /**
  * @brief       Callback function for I2C communication Receiveing the data from the master.
- * 
+ *
  * @param       int howMany - number of bytes received from the master.
  */
 void receiveEvent(int howMany)
@@ -129,8 +129,23 @@ void receiveEvent(int howMany)
     // Get the address pointer value.
     i2cRegs.addressPointer = Wire.read();
 
+    // Check if the clear command has been sent.
+    if (i2cRegs.addressPointer == 3)
+    {
+        // Clear available flag.
+        i2cRegs.tagAvailable = false;
+
+        // Clear tagIDs.
+        i2cRegs.tagIDRaw = 0;
+        i2cRegs.tagID = 0;
+
+        // Reset the adddress pointer vaule.
+        i2cRegs.addressPointer = 0;
+    }
+
     // Check the boundaries.
-    if (i2cRegs.addressPointer > 2) i2cRegs.addressPointer = 0;
+    if (i2cRegs.addressPointer > 2)
+        i2cRegs.addressPointer = 0;
 }
 
 /**
@@ -145,16 +160,21 @@ void requestEvent()
     if (i2cRegs.addressPointer == 0)
     {
         // Send available flag.
-        Wire.write((uint8_t*)&i2cRegs.tagAvailable, sizeof(i2cRegs.tagAvailable));
+        Wire.write((uint8_t *)&i2cRegs.tagAvailable, sizeof(i2cRegs.tagAvailable));
+
+        // Wait until data is sent.
+        while (Wire.available())
+            ;
     }
     // Address 1 is for RFID Tag ID
     else if (i2cRegs.addressPointer == 1)
     {
         // Send RFID Tag ID Data.
-        Wire.write((uint8_t*)&i2cRegs.tagID, sizeof(i2cRegs.tagID));
+        Wire.write((uint8_t *)&i2cRegs.tagID, sizeof(i2cRegs.tagID));
 
         // Wait until data is sent.
-        while (Wire.available());
+        while (Wire.available())
+            ;
 
         // Clear the flag and RFID Tag ID.
         i2cRegs.tagAvailable = false;
@@ -164,10 +184,11 @@ void requestEvent()
     else if (i2cRegs.addressPointer == 2)
     {
         // Send RFID Tag RAW Data.
-        Wire.write((uint8_t*)&i2cRegs.tagIDRaw, sizeof(i2cRegs.tagIDRaw));
+        Wire.write((uint8_t *)&i2cRegs.tagIDRaw, sizeof(i2cRegs.tagIDRaw));
 
         // Wait until data is sent.
-        while (Wire.available());
+        while (Wire.available())
+            ;
 
         // Clear the flag and RFID Tag RAW Data.
         i2cRegs.tagAvailable = false;

@@ -177,14 +177,14 @@ void serialResponse()
 void printHex64(uint64_t _number)
 {
     char _temp[17];
-    
-    for (int i = 60; i >= 0; i-=4)
+
+    for (int i = 60; i >= 0; i -= 4)
     {
         _temp[15 - (i / 4)] = intToHex((_number >> i) & 0x0F);
     }
-    
+
     _temp[16] = '\0';
-    
+
     Serial.print(_temp);
 }
 
@@ -193,13 +193,15 @@ void printHex64(uint64_t _number)
  *
  * @param       uint8_t _n
  *              4 bit number that will be converted into HEX char. Only lower 4 bit will be used.
- * 
+ *
  * @return      char - ASCII char converted from input number into HEX.
  */
 char intToHex(uint8_t _n)
 {
     _n &= 0x0F;
-    
-    if (_n >= 0 && _n <= 9) return (_n + '0');
-    if (_n >= 10 && _n <= 15) return (_n - 10) + 'A';
+
+    if (_n >= 0 && _n <= 9)
+        return (_n + '0');
+    if (_n >= 10 && _n <= 15)
+        return (_n - 10) + 'A';
 }

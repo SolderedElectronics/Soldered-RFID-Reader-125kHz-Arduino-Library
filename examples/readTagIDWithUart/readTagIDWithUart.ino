@@ -31,13 +31,13 @@
 #include "RFID-SOLDERED.h"
 
 // Change pins if needed.
-// D4 on Dasduino Core.
+// Connect TXD from breakout to D4 on Dasduino Core.
 #define RX_PIN 4
 
-// D5 on Dasduino Core.
+// Connect RXD from breakout to D5 on Dasduino Core.
 #define TX_PIN 5
 
-// RFID library constructor. Set RX pin, TX pin and baud for sotware serial.
+// RFID library constructor. Set RX pin, TX pin and baud for RFID communicaton speed (software serial).
 Rfid rfid(RX_PIN, TX_PIN, 9600);
 
 void setup()
