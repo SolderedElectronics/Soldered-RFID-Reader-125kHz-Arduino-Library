@@ -14,7 +14,7 @@ var class_rfid =
     [ "initializeNative", "class_rfid.html#a17776f4e90065c4b413fe8a66cae4682", null ],
     [ "intToHex", "class_rfid.html#a89134a4c5546c949fb6d2686ebd759a5", null ],
     [ "printHex64", "class_rfid.html#a1ee298f99127351421f86489608479f9", null ],
-    [ "baudRate", "class_rfid.html#acdea78beea32f3a20133844e02a7e053", null ],
+    [ "baudRate", "class_rfid.html#a5a1548c3cf50c0ecf341bd39951ab179", null ],
     [ "rfidRAW", "class_rfid.html#a707b0a688a89f65aacb539470636bb0d", null ],
     [ "rfidSerial", "class_rfid.html#a0936ecdc08e7238211fd2c7ac4566314", null ],
     [ "rxPin", "class_rfid.html#aeba3632ae4b9185435e5eadb3c77840b", null ],
