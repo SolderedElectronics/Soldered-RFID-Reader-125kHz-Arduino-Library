@@ -51,7 +51,7 @@ class Rfid : public EasyC
     int txPin;
 
     // Software Serial baud rate. Default is 9600.
-    int baudRate;
+    uint32_t baudRate;
 
     // Software serial object (used for serial communication with RFID breakout board).
     SoftwareSerial *rfidSerial;

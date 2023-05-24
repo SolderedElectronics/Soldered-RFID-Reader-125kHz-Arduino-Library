@@ -14,15 +14,15 @@
  *              Default UART speed is 9600, but communication speed can be changed by changing the position of the DIP
  *switches on the breakout.
  *
- *              Switch    1     2     3
- *              9600      0     0     0
- *              2400      0     0     1
- *              4800      0     1     0
- *              19200     0     1     1
- *              38400     1     0     0
- *              57600     1     0     1
- *              115200    1     1     0
- *              230400    1     1     1
+ *              Switch      1     2     3
+ *              9600        0     0     0
+ *              2400        1     0     0
+ *              4800        0     1     0
+ *              19200       1     1     0
+ *              38400       0     0     1
+ *              57600       1     0     1
+ *              115200      0     1     1
+ *              230400      1     1     1
  *
  *              Also, do not forget to change the communication speed in the RFID library constructor.
  *
