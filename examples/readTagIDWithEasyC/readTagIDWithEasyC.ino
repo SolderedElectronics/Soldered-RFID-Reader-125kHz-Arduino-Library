@@ -30,7 +30,6 @@
 // Include brekaout specific library.
 #include "RFID-SOLDERED.h"
 
-
 // RFID library constructor. For easyC usage, there should be no parameters sent to the constructor.
 Rfid rfid;
 
@@ -77,5 +76,8 @@ void loop()
 
         // Send a new line at the end.
         Serial.println();
+
+        // Also if needed, RFID data can be cleared from the breakout with clear function.
+        // rfid.clear();
     }
 }

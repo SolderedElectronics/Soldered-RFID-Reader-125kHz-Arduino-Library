@@ -51,13 +51,13 @@ bool Rfid::checkHW()
         delay(15);
 
         // Local serial buffer for storing the response.
-        char _serailBuffer[25];
+        char _serialBuffer[25];
 
         // Check if we got something.
-        if (getTheSerialData(_serailBuffer, sizeof(_serailBuffer) / sizeof(char), 5))
+        if (getTheSerialData(_serialBuffer, sizeof(_serialBuffer) / sizeof(char), SERIAL_TIMEOUT_MS))
         {
             // Check if we got proper response.
-            if (strstr(_serailBuffer, "#hello"))
+            if (strstr(_serialBuffer, "#hello"))
             {
                 // If it is, return true.
                 return true;
@@ -72,6 +72,10 @@ bool Rfid::checkHW()
         // Received ACK? Retrun success!
         if (!Wire.endTransmission())
         {
+            // Clear all previous data from the RFID reader.
+            clear();
+
+            // Return success.
             return true;
         }
     }
@@ -94,14 +98,14 @@ bool Rfid::available()
     if (native)
     {
         // Local serial buffer for storing the response.
-        char _serailBuffer[30];
+        char _serialBuffer[30];
 
         // If the data is available and it's valid, return success.
-        if (getTheSerialData(_serailBuffer, sizeof(_serailBuffer) / sizeof(char), SERIAL_TIMEOUT_MS))
+        if (getTheSerialData(_serialBuffer, sizeof(_serialBuffer) / sizeof(char), SERIAL_TIMEOUT_MS))
         {
             // Try to get the RFID tag ID.
-            char *_tagIdStart = strchr(_serailBuffer, '$');
-            char *_tagRawStart = strchr(_serailBuffer, '&');
+            char *_tagIdStart = strchr(_serialBuffer, '$');
+            char *_tagRawStart = strchr(_serialBuffer, '&');
             if (_tagIdStart && _tagRawStart)
             {
                 // Get the ID by converting it from string to the int.
@@ -378,4 +382,15 @@ char Rfid::intToHex(uint8_t _n)
 
     // Return the result.
     return _result;
+}
+
+/**
+ * @brief                   Clears the tag ID data on brekaout.
+ *
+ * @note                    It's only available for easyC version.
+ */
+void Rfid::clear()
+{
+    // Clear all previous data from the RFID reader.
+    sendAddress(3);
 }

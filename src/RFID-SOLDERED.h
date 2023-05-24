@@ -22,7 +22,7 @@
 #endif
 
 // How long serial will still try to get the data from the last char that has been received.
-#define SERIAL_TIMEOUT_MS 10
+#define SERIAL_TIMEOUT_MS 20
 
 class Rfid : public EasyC
 {
@@ -34,6 +34,7 @@ class Rfid : public EasyC
     uint32_t getId();
     uint64_t getRaw();
     void printHex64(uint64_t _number);
+    void clear();
 
   protected:
     void initializeNative();
