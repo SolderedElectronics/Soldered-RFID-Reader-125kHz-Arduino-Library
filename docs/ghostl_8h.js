@@ -4,9 +4,9 @@ var ghostl_8h =
     [ "std::array< T, N >", "structstd_1_1array.html", "structstd_1_1array" ],
     [ "std::unique_ptr< T >", "classstd_1_1unique__ptr.html", "classstd_1_1unique__ptr" ],
     [ "std::identity< T >", "structstd_1_1identity.html", "structstd_1_1identity" ],
-    [ "function", "ghostl_8h.html#a91fd0ef6c51e73d9daed224956877baf", null ],
+    [ "function", "ghostl_8h.html#aca54adb63152b68fd5e8cd942c61885a", null ],
     [ "memory_order", "ghostl_8h.html#ae2a064461118d404041c13e66a930220", null ],
-    [ "nullptr_t", "ghostl_8h.html#a3b77ddce6fb5d2c9de08f0d112a8337e", null ],
+    [ "nullptr_t", "ghostl_8h.html#a75572b8c8a824d7d36f8d8d67b0279da", null ],
     [ "size_t", "ghostl_8h.html#ae69faf5467d10c514074c9d6dc452f44", null ],
     [ "memory_order", "ghostl_8h.html#ab4f8c60de95c10793a8e3e27fcb800d9", [
       [ "memory_order_relaxed", "ghostl_8h.html#ab4f8c60de95c10793a8e3e27fcb800d9a0b64c8ee639be9a1003a33b0f46f26a8", null ],
