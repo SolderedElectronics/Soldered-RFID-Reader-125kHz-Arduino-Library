@@ -4,16 +4,13 @@
    @file        attiny_firmware_uart.ino
    @brief       Firmware code for ATtiny1604 based RFID breakout with UART communication.
 
-                MCU: ATTINY1604
-                Arduino Core: MegaTiny Core (http://drazzy.com/package_drazzy.com_index.json)
-                Arduino Core Version: 2.4.2
-                OR
                 Dasduino ATtiny Boards -> easyC Boards
                 MCU: ATTINY1604
 
                 !!!IMPORTANT!!! - choose this options - !!!IMPORTANT!!!
-                CPU CLOCK: 10MHz Internal - Changing this will affect timings of PWM signal for RFID coil (125 kHz),
- timings for Manchester decoding using timer TCB and buzzer freq. millis() / micros(): RTC (no micros)
+                - CPU CLOCK: 20MHz Internal - Changing this will affect timings of PWM signal for RFID coil (125 kHz).
+ timings for Manchester decoding using timer TCB and buzzer freq.
+                - millis() / micros(): RTC (no micros)
                 !!!IMPORTANT!!! - choose this options - !!!IMPORTANT!!!
 
    @authors     Borna Biro for soldered.com
@@ -54,7 +51,7 @@ void loop()
             pulseINT(INT_PIN_PULSE_MS);
         }
 
-        // Clear everything from RFID buffer.
+        // Clear the buffers.
         rfid.clear();
     }
 
@@ -141,7 +138,7 @@ void serialResponse()
         char _uartBuffer[20];
 
         // Counter for received chars.
-        char _rxDataCount = 0;
+        int8_t _rxDataCount = 0;
 
         // Get the chars frim UART. Wait 100ms from last received char.
         while ((unsigned long)(millis() - _rxTimeout) < 10)
@@ -198,10 +195,15 @@ void printHex64(uint64_t _number)
  */
 char intToHex(uint8_t _n)
 {
+    // Mask it to use only lower 4 bits.
     _n &= 0x0F;
 
+    // Onvert it into HEX ASCII.
     if (_n >= 0 && _n <= 9)
         return (_n + '0');
     if (_n >= 10 && _n <= 15)
         return (_n - 10) + 'A';
+
+    // Just a fail-safe.
+    return '0';
 }

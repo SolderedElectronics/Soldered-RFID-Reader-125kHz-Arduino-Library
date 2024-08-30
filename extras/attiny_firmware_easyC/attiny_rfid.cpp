@@ -1,15 +1,18 @@
 #include "attiny_rfid.h"
 
 // More samples means higher accuracy but longer detection.
-#define RFID_SAMPLES 200
+#define RFID_SAMPLES 180
 
 // Do not change (calculations for the buffer size).
-#define CEILING(x, y)       (((x) + (y)-1) / (y))
+#define CEILING(x, y)       (((x) + (y) - 1) / (y))
 #define RFID_RAW_ARRAY_SIZE CEILING(RFID_SAMPLES, 8)
 
 // Buffer for the raw RFID data captured by pin change interrputs.
-volatile uint8_t _rfidRawData[RFID_RAW_ARRAY_SIZE];
-volatile uint16_t _rfidRawDataCnt = 0;
+static volatile uint8_t _rfidRawDataBuffer1[RFID_RAW_ARRAY_SIZE];
+static volatile uint8_t _rfidRawDataBuffer2[RFID_RAW_ARRAY_SIZE];
+static volatile uint16_t _rfidRawDataCnt = 0;
+static volatile uint8_t* _currentCapturePtr = _rfidRawDataBuffer1;
+static volatile uint8_t* _currentDecodePtr = _rfidRawDataBuffer2;
 
 
 /**
@@ -46,13 +49,31 @@ bool tinyRFID::available()
     // Variable for decoded RFID data.
     uint64_t _RFIDData = 0;
 
+    // If long time has passed since last check, unvalidate data in the buffer!
+    if ((unsigned long)(millis() - _lastDecodeTimestamp) > BUFFER_CLEAR_TIMEOUT_MS)
+    {
+        // Clear only the RFID RAW buffers, not the decoded data.
+        clear(false);
+    }
+
+    // Update the timestamp!
+    _lastDecodeTimestamp = millis();
+
     // If the buffer is almost full, start analyzing the data stream.
     if (_rfidRawDataCnt >= (RFID_SAMPLES - 2))
     {
-        // Disable interrupts during decoding (save CPU cycles and there is no chance of data corruption from
-        // interrutps)
-        PORTA.PIN1CTRL &= ~(PORT_ISC_BOTHEDGES_gc);
-        PORTA.INTFLAGS |= (1 << 1);
+        // Swap the buffers!
+        if (_currentDecodePtr == _rfidRawDataBuffer1)
+        {
+            _currentDecodePtr = _rfidRawDataBuffer2;
+            _currentCapturePtr = _rfidRawDataBuffer1;
+        }
+        else
+        {
+            _currentDecodePtr = _rfidRawDataBuffer1;
+            _currentCapturePtr = _rfidRawDataBuffer2;
+        }
+        _rfidRawDataCnt = 0;
 
         // Variables for storing the start position of the RFID data (in bits)
         int _startHeaderOffset = 0;
@@ -68,11 +89,11 @@ bool tinyRFID::available()
         do
         {
             // Try to find strt of the header.
-            _headerFound = findHeader(_rfidRawData, sizeof(_rfidRawData), &_startHeaderOffset, _skippedHeaders);
+            _headerFound = findHeader((uint8_t*)(_currentDecodePtr), RFID_RAW_ARRAY_SIZE, &_startHeaderOffset, _skippedHeaders);
             if (_headerFound)
             {
                 // If the vaild header is found, try to get the data.
-                if (extractData(_rfidRawData, sizeof(_rfidRawData), &_RFIDData, _startHeaderOffset))
+                if (extractData((uint8_t*)(_currentDecodePtr), RFID_RAW_ARRAY_SIZE, &_RFIDData, _startHeaderOffset))
                 {
                     // Check if is valid data
                     if (validData(_RFIDData))
@@ -91,10 +112,8 @@ bool tinyRFID::available()
             // Repeat all that until you find a header but it's not proper RFID data.
         } while (_headerFound && !_ret);
 
-        // After data analyzing clean buffer/array, reset data array counter and re-enable interrupt
-        PORTA.PIN1CTRL |= PORT_ISC_BOTHEDGES_gc;
-        memset(_rfidRawData, 0, RFID_RAW_ARRAY_SIZE * sizeof(uint8_t));
-        _rfidRawDataCnt = 0;
+        // After data analyzing clean buffer/array.
+        memset((uint8_t*)(_currentDecodePtr), 0, RFID_RAW_ARRAY_SIZE);
     }
     return _ret;
 }
@@ -116,9 +135,6 @@ bool tinyRFID::available()
  */
 bool tinyRFID::findHeader(uint8_t *_data, int _n, int *_offset, int _skip)
 {
-    // Set the return flag to false (in the case the header is not found).
-    bool _ret = false;
-
     // Variable that counts skipped headers (makred as "invalid")
     int _skipHeader;
 
@@ -255,16 +271,21 @@ uint64_t tinyRFID::getRAW()
  * read.
  *
  */
-void tinyRFID::clear()
+void tinyRFID::clear(bool _clearTagData)
 {
-    // Set the RAW data to zero.
-    _rfidRaw = 0;
+    // If flag is set for clearing RFID data, clear it!
+    if (_clearTagData)
+    {
+        // Set the RAW data to zero.
+      _rfidRaw = 0;
 
-    // Set the tag ID to zero (invalid tag ID).
-    _tagID = 0;
+      // Set the tag ID to zero (invalid tag ID).
+      _tagID = 0;
+    }
 
     // Clear the buffer for the raw RFID capture
-    memset(_rfidRawData, 0, sizeof(_rfidRawData));
+    memset((uint8_t*)(_currentCapturePtr), 0, RFID_RAW_ARRAY_SIZE);
+    memset((uint8_t*)(_currentDecodePtr), 0, RFID_RAW_ARRAY_SIZE);
 
     // Set counter for the captured bits to zero.
     _rfidRawDataCnt = 0;
@@ -280,8 +301,8 @@ void tinyRFID::startRFOsc()
     // This is the timer used for renerating 125kHz, 20% duty cycle.
     // It uses TimerA in split mode.
     TCA0.SPLIT.CTRLB = TCA_SPLIT_HCMP0EN_bm;
-    TCA0.SPLIT.HPER = 4;
-    TCA0.SPLIT.HCMP0 = 1;
+    TCA0.SPLIT.HPER = 9;
+    TCA0.SPLIT.HCMP0 = 2;
     TCA0.SPLIT.CTRLA = TCA_SPLIT_CLKSEL_DIV16_gc | TCA_SPLIT_ENABLE_bm;
 }
 
@@ -409,7 +430,6 @@ bool tinyRFID::checkStopBit(uint64_t _d)
     return !(_d & 1);
 }
 
-
 // This is not a classic function, it's a interrupt vector (do not put that into doxygen!).
 // It's called automatically when pin change occurs.
 ISR(PORTA_PORT_vect)
@@ -427,17 +447,17 @@ ISR(PORTA_PORT_vect)
     volatile uint8_t _n = 0;
 
     // Get time interval for each change on pin (there will be two times, shorter means there is on symbol change,
-    // longer means symbol change has happend)
-    if ((_time > 900) && (_time < 1900))
+    // longer means symbol change has happend).
+    if ((_time > 1000) && (_time < 3500))
     {
         // Add state of the
-        _rfidRawData[_rfidRawDataCnt / 8] |= _state << ((_rfidRawDataCnt % 8));
+        _currentCapturePtr[_rfidRawDataCnt / 8] |= _state << ((_rfidRawDataCnt % 8));
         _n = 1;
     }
-    else if ((_time > 2000) && (_time < 4000))
+    else if ((_time > 4500) && (_time < 6000))
     {
-        _rfidRawData[_rfidRawDataCnt / 8] |= _state << ((_rfidRawDataCnt % 8));
-        _rfidRawData[(_rfidRawDataCnt + 1) / 8] |= _state << ((_rfidRawDataCnt + 1) % 8);
+        _currentCapturePtr[_rfidRawDataCnt / 8] |= _state << ((_rfidRawDataCnt % 8));
+        _currentCapturePtr[(_rfidRawDataCnt + 1) / 8] |= _state << ((_rfidRawDataCnt + 1) % 8);
         _n = 2;
     }
 

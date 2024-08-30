@@ -4,16 +4,13 @@
    @file        attiny_firmware_easyC.ino
    @brief       Firmware code for ATtiny1604 based RFID breakout with easyC communication.
 
-                MCU: ATTINY1604
-                Arduino Core: MegaTiny Core (http://drazzy.com/package_drazzy.com_index.json)
-                Arduino Core Version: 2.4.2
-                OR
                 Dasduino ATtiny Boards -> easyC Boards
                 MCU: ATTINY1604
 
                 !!!IMPORTANT!!! - choose this options - !!!IMPORTANT!!!
-                CPU CLOCK: 10MHz Internal - Changing this will affect timings of PWM signal for RFID coil (125 kHz),
- timings for Manchester decoding using timer TCB and buzzer freq. millis() / micros(): RTC (no micros)
+                - CPU CLOCK: 20MHz Internal - Changing this will affect timings of PWM signal for RFID coil (125 kHz),
+ timings for Manchester decoding using timer TCB and buzzer freq.
+                - millis() / micros(): RTC (no micros)
                 !!!IMPORTANT!!! - choose this options - !!!IMPORTANT!!!
 
    @authors     Borna Biro for soldered.com
