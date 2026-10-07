@@ -158,20 +158,12 @@ void requestEvent()
     {
         // Send available flag.
         Wire.write((uint8_t *)&i2cRegs.tagAvailable, sizeof(i2cRegs.tagAvailable));
-
-        // Wait until data is sent.
-        while (Wire.available())
-            ;
     }
     // Address 1 is for RFID Tag ID
     else if (i2cRegs.addressPointer == 1)
     {
         // Send RFID Tag ID Data.
         Wire.write((uint8_t *)&i2cRegs.tagID, sizeof(i2cRegs.tagID));
-
-        // Wait until data is sent.
-        while (Wire.available())
-            ;
 
         // Clear the flag and RFID Tag ID.
         i2cRegs.tagAvailable = false;
@@ -182,10 +174,6 @@ void requestEvent()
     {
         // Send RFID Tag RAW Data.
         Wire.write((uint8_t *)&i2cRegs.tagIDRaw, sizeof(i2cRegs.tagIDRaw));
-
-        // Wait until data is sent.
-        while (Wire.available())
-            ;
 
         // Clear the flag and RFID Tag RAW Data.
         i2cRegs.tagAvailable = false;
