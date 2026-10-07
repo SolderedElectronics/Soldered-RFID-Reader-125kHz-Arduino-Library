@@ -1,8 +1,12 @@
 var classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4 =
 [
+    [ "FunAPtr", "classdelegate_1_1detail_1_1_delegate_impl.html#aaf92bf7552ce168280d72bb78dd7a97c", null ],
     [ "FunctionType", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#a9bae0ac53b3ac9716ebe3d531d6874ce", null ],
-    [ "FunPtr", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#ad2d0efd5bddcea7cf7b23b049d2a9388", null ],
-    [ "FunVPPtr", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#abe2a02eae94e3dffe6aff76d3b52566e", null ],
+    [ "FunPtr", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#ad58edba290c87219270d2dfd3cc3f8f9", null ],
+    [ "FunPtr", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#ad58edba290c87219270d2dfd3cc3f8f9", null ],
+    [ "FunVPPtr", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#a366afe4b745e6baae00ae25521a8d930", null ],
+    [ "FunVPPtr", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#a366afe4b745e6baae00ae25521a8d930", null ],
+    [ "target_type", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#a68da902e66952cfd8c7f32efb1f1566d", null ],
     [ "target_type", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#a68da902e66952cfd8c7f32efb1f1566d", null ],
     [ "DelegateImpl", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#a7ececcdb3f1d02bd08b5f871a04ad02a", null ],
     [ "DelegateImpl", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#a1617f9258af9f680db90d84e16b062c3", null ],
@@ -34,7 +38,8 @@ var classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4 =
     [ "operator=", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#a930c15e59d85f247937b31cd6aa26faa", null ],
     [ "operator=", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#a7196f0347522e13a1c3bb1c29e2fc5eb", null ],
     [ "operator=", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#a7196f0347522e13a1c3bb1c29e2fc5eb", null ],
+    [ "vPtrToFunAPtrExec", "classdelegate_1_1detail_1_1_delegate_impl.html#a84a6393d9da9dc981c67252cb6a211bb", null ],
     [ "fn", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#af72cc43c8c0ad3d081cb24dbd37aee16", null ],
-    [ "functional", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#ad980a41e07b86dc6dd860aa2f91ad6f0", null ],
-    [ "kind", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#a6085a2a8b7addb7deecc5f79202c0078", null ]
+    [ "kind", "classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#a84c41b42894b33c4002ec63a62a6dcd4", null ],
+    [ "obj", "classdelegate_1_1detail_1_1_delegate_impl.html#aef45028b254fd8b714995eaacca1dacc", null ]
 ];

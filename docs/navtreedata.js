@@ -69,10 +69,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_delegate_8h.html",
-"classdelegate_1_1detail_1_1_delegate_3_01_a_01_5_00_01_r_00_01_p_8_8_8_01_4.html",
-"classdelegate_1_1detail_1_1_delegate_impl_3_01void_00_01_r_01_4.html#a1617f9258af9f680db90d84e16b062c3",
-"classdelegate_1_1detail_1_1_multi_delegate_3_01_delegate_00_01void_07_08_00_01_i_s_q_u_e_u_e_00_be7da3c18d87902b0a9838703ad4f54e.html#a703a30674a4de2b48931fcf40beb50a4"
+"classdelegate_1_1detail_1_1_delegate_3_01_a_00_01_r_01_4.html#ab529419e3f39bfc272c99136b949fe72",
+"classdelegate_1_1detail_1_1_delegate_impl.html#ae92698e770b7bb8c77794e370eb1237a",
+"classdelegate_1_1detail_1_1_delegate_p_impl_3_01void_00_01_r_00_01_p_8_8_8_01_4.html#aa1396fa78e1a8b5af3c3a10144e98aad",
+"structdelegate_1_1detail_1_1_multi_delegate_p_impl_1_1_node__t.html#adc93a67801ffc38d0143cdd411520a9e"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+const SYNCONMSG = 'click to disable panel synchronization';
+const SYNCOFFMSG = 'click to enable panel synchronization';
+const LISTOFALLMEMBERS = 'List of all members';

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['rfid_20board_20arduino_20library_0',['Soldered 125kHz RFID board Arduino library',['../index.html',1,'']]]
+  ['design_0',['Hardware design',['../index.html#autotoc_md2',1,'']]],
+  ['documentation_1',['Documentation',['../index.html#autotoc_md3',1,'']]]
 ];

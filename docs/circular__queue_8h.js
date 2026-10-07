@@ -1,4 +1,4 @@
 var circular__queue_8h =
 [
-    [ "circular_queue< T, ForEachArg >", "classcircular__queue.html", "classcircular__queue" ]
+    [ "circular_queue&lt; T, ForEachArg &gt;", "classcircular__queue.html", "classcircular__queue" ]
 ];

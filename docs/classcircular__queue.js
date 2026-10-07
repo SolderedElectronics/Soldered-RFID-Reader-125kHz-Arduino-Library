@@ -25,8 +25,8 @@ var classcircular__queue =
     [ "push_n", "classcircular__queue.html#a08c00615e438bb04e0b5efe853044e43", null ],
     [ "pushpeek", "classcircular__queue.html#af17f7e80e74c9d866e44d6a33b8c1389", null ],
     [ "defaultValue", "classcircular__queue.html#a57960e33ab2087003c4112528f83d2e4", null ],
-    [ "m_buffer", "classcircular__queue.html#a9e73a870fce40fdee7841d09a3cd628f", null ],
     [ "m_buffer", "classcircular__queue.html#a8fce21b58acac06f19c17d4bdd1e8c58", null ],
+    [ "m_buffer", "classcircular__queue.html#a9e73a870fce40fdee7841d09a3cd628f", null ],
     [ "m_bufSize", "classcircular__queue.html#acf31ef42ec94255b2f40f7101c36ada4", null ],
     [ "m_inPos", "classcircular__queue.html#ab1863bcdf48683a4a895089f03e2b1ce", null ],
     [ "m_outPos", "classcircular__queue.html#afc6a18882d66d777b6c865da135d17eb", null ]
